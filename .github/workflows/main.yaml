@@ -3,7 +3,7 @@ on:
   release:
     types: [published]
     tag:
-    - v0.*
+    - v*
 
 jobs:
   build_and_upload:
