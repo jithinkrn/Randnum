@@ -27,10 +27,11 @@ jobs:
       # https://github.com/marketplace/actions/build-and-push-docker-images
       #Buld and push with image tag as <account name>/<image name>:<tag> format
       - name: Build and push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v2
         with:
           context: .          
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/randomnum_number_app/${{ github.ref }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/randomnum_image:${{ github.ref }}
+        
 
       
