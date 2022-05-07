@@ -33,6 +33,27 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/randomnum:${{ github.ref_name }}
 
-        
+      # https://github.com/marketplace/actions/slack-send
+      #To post message on slack channel
 
+       - name: Posting on slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.18.0
+        with:
+          payload: |
+            {
+              "text": "SA54 Random Nunmber Test",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Name: ${{secrets.PERSONAL_DETAILS}}\nRepository: ${{ github.repositoryUrl }}\nImage Name: ${{ github.repository }}:${{ github.ref_name }}\nImage URL: ${{secrets.DOCKERIMG_URL}}"
+                  }
+                }
+              ]
+             } 
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
       
