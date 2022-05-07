@@ -32,7 +32,7 @@ jobs:
           context: .          
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/randomnum:${{ github.ref_name }}
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/randimg:${{ github.ref_name }}
+          
         
 
       
