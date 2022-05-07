@@ -12,7 +12,7 @@ jobs:
     steps:
 
       # https://github.com/marketplace/actions/checkout
-      #This action checks-out repository under $GITHUB_WORKSPACE, so that workflow can access it
+      #This action checks-out repository under $GITHUB_WORKSPACE, so that workflow can access it.
       - name: Checkout the code from github repo
         uses: actions/checkout@v3
 
@@ -25,7 +25,7 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
       
       # https://github.com/marketplace/actions/build-and-push-docker-images
-      #Build and push with image tag as <account name>/<image name>:<tag> format
+      #Build and push with image tag as <account name>/<image name>:<tag> format.
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
