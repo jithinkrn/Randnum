@@ -34,9 +34,9 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/randomnum:${{ github.ref_name }}
 
       # https://github.com/marketplace/actions/slack-send
-      #To post message on slack channel
+      # To post message on slack channel
 
-       - name: Posting on slack channel
+      - name: Posting on slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.18.0
         with:
@@ -48,7 +48,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Name: ${{secrets.PERSONAL_DETAILS}}\nRepository: ${{ github.repositoryUrl }}\nImage Name: ${{ github.repository }}:${{ github.ref_name }}\nImage URL: ${{secrets.DOCKERIMG_URL}}"
+                    "text": "Name: ${{ secrets.PERSONAL_DETAILS }}\nRepository: ${{ github.repositoryUrl }}\nImage Name: ${{ github.repository }}:${{ github.ref_name }}\nImage URL: ${{secrets.DOCKERIMG_URL}}"
                   }
                 }
               ]
